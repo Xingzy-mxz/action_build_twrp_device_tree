@@ -49,13 +49,13 @@ jobs:
       run: |
         zip -r DeviceTree.zip ./dt
 
-  -name: Create Release and Upload Release Asset
+    - name: Create Release and Upload Release Asset
 	uses: softprops/action-gh-release@v1
       with:
         files: |
           ./DeviceTree.zip
-        name: as
-        tag_name: 33333333
+        tag_name: V0.${{ github.run_id }}.dev
+		name: V0.${{ github.run_id }}.dev
         body: DeviceTree for twrp
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
